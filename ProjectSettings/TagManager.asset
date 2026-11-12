@@ -11,6 +11,7 @@ TagManager:
   - Compost
   - Flame
   - Trail
+  - Blue_Screen
   layers:
   - Default
   - TransparentFX

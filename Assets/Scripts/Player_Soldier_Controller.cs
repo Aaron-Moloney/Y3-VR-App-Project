@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class Player_Soldier_Controller : MonoBehaviour
@@ -13,13 +14,18 @@ public class Player_Soldier_Controller : MonoBehaviour
     float mv = 1f;
     public GameObject torus;
     GameObject tempTorus;
+    GameObject blueScreen;
+    TextMeshProUGUI tmp;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         checkBoxSize = new Vector3(baseSize/2,baseSize/2,baseSize/2);
-        tempTorus = Instantiate(torus, transform.position, transform.position);
+        //tempTorus = Instantiate(torus, transform.position, transform.rotation);
+        blueScreen = GameObject.FindGameObjectWithTag("Blue_Screen");
+        Debug.Log(blueScreen.name);
+        tmp = blueScreen.GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
@@ -47,7 +53,7 @@ public class Player_Soldier_Controller : MonoBehaviour
         isWalking = true;
         startWalkLoc = transform.position;
         
-        Instantiate(torus, transform.position, transform.rotation);
+        //Instantiate(torus, transform.position, transform.rotation);
     }
     public void stopWalk()
     {
@@ -73,8 +79,8 @@ public class Player_Soldier_Controller : MonoBehaviour
         }
     }
 
-    public void testMethod()
+    public void updateText()
     {
-        Debug.Log("Test method called.");
+        blueScreen.GetComponent<Blue_Screen_Controller>().updateText(mv.ToString());
     }
 }
