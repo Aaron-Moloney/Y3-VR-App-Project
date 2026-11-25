@@ -22,9 +22,9 @@ public class Player_Soldier_Controller : MonoBehaviour
     Plinth_Controller plinthController;
     public bool isSelected = false;
     public bool allowMoving = false;
-    bool hasMoved = false;
+    //bool hasMoved = false;
     public bool allowShooting = false;
-    bool hasShot = false;
+    //bool hasShot = false;
     float capsuleRadius;
     LineRenderer lineRenderer;
     float walkHeight = 0.575f;
@@ -48,8 +48,8 @@ public class Player_Soldier_Controller : MonoBehaviour
         lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
         lineRenderer.startColor = Color.blue;
         lineRenderer.endColor = Color.blue;
-        lineRenderer.startWidth = 0.02f;
-        lineRenderer.endWidth = 0.02f;
+        lineRenderer.startWidth = 0.005f;
+        lineRenderer.endWidth = 0.005f;
         lineRenderer.positionCount = 2;
     }
 
@@ -98,14 +98,6 @@ public class Player_Soldier_Controller : MonoBehaviour
             isWalking = false;
             endWalkLoc = transform.position;
             endWalkLoc.y = startWalkLoc.y;
-            //TODO draw a line representing movement left
-            //Physics.CapsuleCast(startWalkLoc, startWalkLoc, capsuleRadius, endWalkLoc - startWalkLoc, Vector3.Distance(endWalkLoc, startWalkLoc), layermask)
-            //float distance = Vector3.Distance(lineRendererPos, startWalkLoc) - (baseSize / capsuleRadius);
-            //if (distance < 0) distance = 0;
-            //Physics.BoxCast(startWalkLoc, checkBoxSize, lineRendererPos - startWalkLoc, transform.rotation, distance, layermask)
-            //Capsule with ends at the start and proposed end of the move, radius the same as the soldiers capsule
-            //RaycastHit hit;
-            //Physics.SphereCast(startWalkLoc, capsuleRadius, lineRendererPos - startWalkLoc, out hit, Vector3.Distance(lineRendererPos, startWalkLoc), layermask)
             if (Physics.Linecast(startWalkLoc, lineRendererPos, layermask))
             {
                 Debug.Log("Invalid movement.");

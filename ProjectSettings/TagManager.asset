@@ -13,6 +13,8 @@ TagManager:
   - Trail
   - Blue_Screen
   - Plinth
+  - Dice
+  - DiceBox
   layers:
   - Default
   - TransparentFX
