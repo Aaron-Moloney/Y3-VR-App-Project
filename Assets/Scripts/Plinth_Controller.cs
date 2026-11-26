@@ -36,7 +36,10 @@ public class Plinth_Controller : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (soldierController.allowMoving) screen.SetText("Moving " + soldierController.soldierName + "\n" + soldierController.mv + " movement remaining.");
+        if (soldierController != null)
+        {
+            if (soldierController.allowMoving) screen.SetText("Moving " + soldierController.soldierName + "\n" + soldierController.mv + " movement remaining.");
+        }
     }
 
     public void test()
